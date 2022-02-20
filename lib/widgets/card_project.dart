@@ -1,8 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CardProject extends StatelessWidget {
+class CardProject extends StatefulWidget {
   const CardProject({Key? key}) : super(key: key);
+
+  @override
+  State<CardProject> createState() => _CardProjectState();
+}
+
+class _CardProjectState extends State<CardProject> {
+  bool isShowMore = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,18 +55,25 @@ class CardProject extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            maxLines: 3,
-            overflow: TextOverflow.ellipsis,
+            maxLines: isShowMore ? null : 3,
+            overflow: isShowMore ? null : TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.bodyText2,
           ),
           const SizedBox(height: 16),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              '+ See More',
-              style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                isShowMore = !isShowMore;
+              });
+            },
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                isShowMore ? '- Show Less' : '+ See More',
+                style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
             ),
           )
         ],
