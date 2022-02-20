@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:introduction/see_portofolio_screen.dart';
 import 'package:introduction/widgets/experiences.dart';
 import 'package:introduction/widgets/icon_with_text.dart';
 
@@ -42,7 +43,14 @@ class CardPortofolio extends StatelessWidget {
               ),
               ElevatedButton(
                 child: const Text('See Portofolio'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SeePortofolioScreen(),
+                    ),
+                  );
+                },
               ),
             ],
           ),
