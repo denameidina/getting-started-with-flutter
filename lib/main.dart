@@ -10,9 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'My Portofolio',
-      home: MyPortofolioScreen(),
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.purple,
+        ),
+      ),
+      home: const MyPortofolioScreen(),
     );
   }
 }

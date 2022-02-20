@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction/widgets/card_portofoilo.dart';
 
@@ -9,8 +10,9 @@ class MyPortofolioScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.network(
-            'https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ',
+          CachedNetworkImage(
+            imageUrl:
+                'https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ',
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
